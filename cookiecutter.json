@@ -1,0 +1,10 @@
+{
+  "project_name": "",
+  "project_dir": "",
+  "source_dir": "{{ cookiecutter.project_name.lower().strip().replace(' ', '_') }}",
+  "project_description": "",
+  "author": "",
+  "author_email": "",
+  "min_python_version": "3.9",
+  "max_line_length": 120
+}

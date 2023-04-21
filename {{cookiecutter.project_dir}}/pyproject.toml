@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "{{ cookiecutter.project_name }}"
+version = "0.1.0"
+description = "{{ cookiecutter.project_description }}"
+authors = ["{{ cookiecutter.author }} <{{ cookiecutter.author_email }}>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^{{ cookiecutter.min_python_version }}"
+
+[tool.poetry.group.dev.dependencies]
+black = "23.3.0"
+mypy = "1.2.0"
+pre-commit = "3.2.2"
+isort = "5.11.2"
+ruff = "0.0.261"
+pytest = ">=7.3.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = {{ cookiecutter.max_line_length }}
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.egg
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.nox
+  | \.venv
+  | \venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | setup.py
+)/
+'''
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+check_untyped_defs = true
+disallow_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = ["tests.*"]
+disallow_untyped_defs = false
+
+[tool.ruff]
+select = ["E", "F", "T201", "T203", "I001"]
+ignore = ["E501"]
+line-length = {{ cookiecutter.max_line_length }}
+fix = true
