@@ -15,6 +15,7 @@ pre-commit = "3.2.2"
 isort = "5.11.2"
 ruff = "0.0.261"
 pytest = ">=7.3.0"
+pydantic = "^2.5.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
